@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('mih.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            transition: background-color 1s ease;
+        }
+        .container {
+            text-align: center;
+            color: white;
+        }
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+            color: black;
+        }
+        .button {
+            font-family: 'Pacifico', cursive;
+            background-color: #ff4d6d;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition-duration: 0.4s;
+        }
+        .button:hover {
+            background-color: #ff3355;
+            color: white;
+        }
+        #noBtn {
+            margin-top: 20px;
+        }
+    </style>
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Will you be my wife Mihaela?</h1>
+        <img id="gif" src="https://i.pinimg.com/originals/8c/ab/4f/8cab4f4c73547d077c56066461c40a5e.gif" alt="Valentine's Day GIF">
+        <br>
+        <button id="yesBtn" class="button">Yes</button>
+        <button id="noBtn" class="button">No</button>
+    </div>
+
+    <script>
+        document.getElementById('noBtn').addEventListener('click', function() {
+            var randomX = Math.random() * (window.innerWidth - this.clientWidth);
+            var randomY = Math.random() * (window.innerHeight - this.clientHeight);
+
+            this.style.position = 'absolute';
+            this.style.left = randomX + 'px';
+            this.style.top = randomY + 'px';
+        });
+
+        document.getElementById('yesBtn').addEventListener('click', function() {
+            document.body.style.backgroundColor = 'black';
+
+            
+            setTimeout(function() {
+                var container = document.querySelector('.container');
+                container.innerHTML = ''; 
+
+                
+                var sunText = document.createElement('h1');
+                sunText.textContent = 'You are my sunshine, my only sunshine';
+                sunText.style.color = 'white';
+                container.appendChild(sunText);
+
+            
+                var arrow = document.createElement('div');
+                arrow.textContent = '➜';
+                arrow.style.fontSize = '3em';
+                arrow.style.cursor = 'pointer';
+                arrow.addEventListener('click', function() {
+                    container.innerHTML = '';
+                    var thankYouText = document.createElement('h1');
+                    thankYouText.textContent = 'Thank you for being mine';
+                    thankYouText.style.color = 'white';
+                    container.appendChild(thankYouText);
+
+                    
+                    var heartGif = document.createElement('img');
+                    heartGif.src = 'endd.gif';
+                    heartGif.alt = 'Heart GIF';
+                    container.appendChild(heartGif);
+                });
+                container.appendChild(arrow);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
