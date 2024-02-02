@@ -63,6 +63,9 @@
         <button id="noBtn" class="button">No</button>
     </div>
 
+    <!-- Adaugare element audio -->
+    <audio id="valentineAudio" src="face.mp3" preload="auto"></audio>
+
     <script>
         document.getElementById('noBtn').addEventListener('click', function() {
             var randomX = Math.random() * (window.innerWidth - this.clientWidth);
@@ -76,18 +79,15 @@
         document.getElementById('yesBtn').addEventListener('click', function() {
             document.body.style.backgroundColor = 'black';
 
-            
             setTimeout(function() {
                 var container = document.querySelector('.container');
                 container.innerHTML = ''; 
 
-                
                 var sunText = document.createElement('h1');
                 sunText.textContent = 'You are my sunshine, my only sunshine';
                 sunText.style.color = 'white';
                 container.appendChild(sunText);
 
-            
                 var arrow = document.createElement('div');
                 arrow.textContent = '➜';
                 arrow.style.fontSize = '3em';
@@ -99,7 +99,6 @@
                     thankYouText.style.color = 'white';
                     container.appendChild(thankYouText);
 
-                    
                     var heartGif = document.createElement('img');
                     heartGif.src = 'endd.gif';
                     heartGif.alt = 'Heart GIF';
@@ -107,6 +106,10 @@
                 });
                 container.appendChild(arrow);
             }, 1000);
+
+            // Redare audio
+            var audio = document.getElementById('valentineAudio');
+            audio.play();
         });
     </script>
 </body>
