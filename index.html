@@ -83,26 +83,39 @@
                 var container = document.querySelector('.container');
                 container.innerHTML = ''; 
 
-                var sunText = document.createElement('h1');
-                sunText.textContent = 'You are my sunshine, my only sunshine';
-                sunText.style.color = 'white';
-                container.appendChild(sunText);
+                var lines = [
+                    "The best things in life are better with you.",
+                    "I met you. I liked you. I love you. I’m keeping you.",
+                    "You are my sunshine, my only sunshine"
+                ];
+
+                var currentLineIndex = 0;
+
+                var textLine = document.createElement('h1');
+                textLine.textContent = lines[currentLineIndex];
+                textLine.style.color = 'white';
+                container.appendChild(textLine);
 
                 var arrow = document.createElement('div');
                 arrow.textContent = '➜';
                 arrow.style.fontSize = '3em';
                 arrow.style.cursor = 'pointer';
                 arrow.addEventListener('click', function() {
-                    container.innerHTML = '';
-                    var thankYouText = document.createElement('h1');
-                    thankYouText.textContent = 'Thank you for being mine';
-                    thankYouText.style.color = 'white';
-                    container.appendChild(thankYouText);
+                    currentLineIndex++;
+                    if (currentLineIndex < lines.length) {
+                        textLine.textContent = lines[currentLineIndex];
+                    } else {
+                        container.innerHTML = '';
+                        var thankYouText = document.createElement('h1');
+                        thankYouText.textContent = 'Thank you for being mine';
+                        thankYouText.style.color = 'white';
+                        container.appendChild(thankYouText);
 
-                    var heartGif = document.createElement('img');
-                    heartGif.src = 'endd.gif';
-                    heartGif.alt = 'Heart GIF';
-                    container.appendChild(heartGif);
+                        var heartGif = document.createElement('img');
+                        heartGif.src = 'endd.gif';
+                        heartGif.alt = 'Heart GIF';
+                        container.appendChild(heartGif);
+                    }
                 });
                 container.appendChild(arrow);
             }, 1000);
